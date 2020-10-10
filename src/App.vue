@@ -1,42 +1,16 @@
 <template>
 <div id="app">
-    <!-- dinamic data point -->
-    @{{user.username}} - {{fullName}}
-    <strong>Followers: </strong> {{followers}}
-    <button @click="followUser">Follow</button>
+    <UserProfile />
 </div>
 </template>
 
 <script>
+import UserProfile from "./components/UserProfile"
+
 export default {
     name: "App",
-    data() {
-        //data works as a function and we return the data that we want
-        return {
-            followers: 0,
-            user: {
-                id: 1,
-                username: 'beans19',
-                firstName: 'Felipe',
-                lastName: 'Stefani',
-                email: 'felipemarqs2015@gmail.com',
-                isAdmin: true
-            }
-        };
-    },
-    //computed data
-    computed: {
-        fullName() {
-            return `${this.user.firstName} ${this.user.lastName}`;
-        }
-    },
-    methods: {
-        followUser() {
-            this.followers++
-        }
-    },
-    mounted() {
-        this.followUser();
+    components: {
+        UserProfile
     }
 };
 </script>
